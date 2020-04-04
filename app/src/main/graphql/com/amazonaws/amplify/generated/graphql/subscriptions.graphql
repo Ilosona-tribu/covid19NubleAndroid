@@ -1,0 +1,589 @@
+# this is an auto generated file. This will be overwritten
+subscription OnCreateNews {
+  onCreateNews {
+    id_news
+    title
+    description
+    detail
+    url_background_image
+    url_thumbnail_image
+    _version
+    _deleted
+    _lastChangedAt
+  }
+}
+subscription OnUpdateNews {
+  onUpdateNews {
+    id_news
+    title
+    description
+    detail
+    url_background_image
+    url_thumbnail_image
+    _version
+    _deleted
+    _lastChangedAt
+  }
+}
+subscription OnDeleteNews {
+  onDeleteNews {
+    id_news
+    title
+    description
+    detail
+    url_background_image
+    url_thumbnail_image
+    _version
+    _deleted
+    _lastChangedAt
+  }
+}
+subscription OnCreateMap {
+  onCreateMap {
+    id_map
+    title
+    description
+    url_map
+    _version
+    _deleted
+    _lastChangedAt
+  }
+}
+subscription OnUpdateMap {
+  onUpdateMap {
+    id_map
+    title
+    description
+    url_map
+    _version
+    _deleted
+    _lastChangedAt
+  }
+}
+subscription OnDeleteMap {
+  onDeleteMap {
+    id_map
+    title
+    description
+    url_map
+    _version
+    _deleted
+    _lastChangedAt
+  }
+}
+subscription OnCreateUser {
+  onCreateUser {
+    id_user
+    tests {
+      items {
+        id_test
+        image_test
+        test_description
+        test_result
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      nextToken
+      startedAt
+    }
+    _version
+    _deleted
+    _lastChangedAt
+  }
+}
+subscription OnUpdateUser {
+  onUpdateUser {
+    id_user
+    tests {
+      items {
+        id_test
+        image_test
+        test_description
+        test_result
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      nextToken
+      startedAt
+    }
+    _version
+    _deleted
+    _lastChangedAt
+  }
+}
+subscription OnDeleteUser {
+  onDeleteUser {
+    id_user
+    tests {
+      items {
+        id_test
+        image_test
+        test_description
+        test_result
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      nextToken
+      startedAt
+    }
+    _version
+    _deleted
+    _lastChangedAt
+  }
+}
+subscription OnCreateTest {
+  onCreateTest {
+    id_test
+    image_test
+    test_description
+    test_result
+    questionnaire {
+      id_questionnaire
+      image_questionnaire
+      title_questionnaire
+      description_questionnaire
+      question {
+        nextToken
+        startedAt
+      }
+      _version
+      _deleted
+      _lastChangedAt
+    }
+    user {
+      id_user
+      tests {
+        nextToken
+        startedAt
+      }
+      _version
+      _deleted
+      _lastChangedAt
+    }
+    _version
+    _deleted
+    _lastChangedAt
+  }
+}
+subscription OnUpdateTest {
+  onUpdateTest {
+    id_test
+    image_test
+    test_description
+    test_result
+    questionnaire {
+      id_questionnaire
+      image_questionnaire
+      title_questionnaire
+      description_questionnaire
+      question {
+        nextToken
+        startedAt
+      }
+      _version
+      _deleted
+      _lastChangedAt
+    }
+    user {
+      id_user
+      tests {
+        nextToken
+        startedAt
+      }
+      _version
+      _deleted
+      _lastChangedAt
+    }
+    _version
+    _deleted
+    _lastChangedAt
+  }
+}
+subscription OnDeleteTest {
+  onDeleteTest {
+    id_test
+    image_test
+    test_description
+    test_result
+    questionnaire {
+      id_questionnaire
+      image_questionnaire
+      title_questionnaire
+      description_questionnaire
+      question {
+        nextToken
+        startedAt
+      }
+      _version
+      _deleted
+      _lastChangedAt
+    }
+    user {
+      id_user
+      tests {
+        nextToken
+        startedAt
+      }
+      _version
+      _deleted
+      _lastChangedAt
+    }
+    _version
+    _deleted
+    _lastChangedAt
+  }
+}
+subscription OnCreateQuestionnaire {
+  onCreateQuestionnaire {
+    id_questionnaire
+    image_questionnaire
+    title_questionnaire
+    description_questionnaire
+    question {
+      items {
+        id_question
+        text_question
+        question_type
+        list_options
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      nextToken
+      startedAt
+    }
+    _version
+    _deleted
+    _lastChangedAt
+  }
+}
+subscription OnUpdateQuestionnaire {
+  onUpdateQuestionnaire {
+    id_questionnaire
+    image_questionnaire
+    title_questionnaire
+    description_questionnaire
+    question {
+      items {
+        id_question
+        text_question
+        question_type
+        list_options
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      nextToken
+      startedAt
+    }
+    _version
+    _deleted
+    _lastChangedAt
+  }
+}
+subscription OnDeleteQuestionnaire {
+  onDeleteQuestionnaire {
+    id_questionnaire
+    image_questionnaire
+    title_questionnaire
+    description_questionnaire
+    question {
+      items {
+        id_question
+        text_question
+        question_type
+        list_options
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      nextToken
+      startedAt
+    }
+    _version
+    _deleted
+    _lastChangedAt
+  }
+}
+subscription OnCreateQuestion {
+  onCreateQuestion {
+    id_question
+    text_question
+    question_type
+    list_options
+    questionnaire {
+      id_questionnaire
+      image_questionnaire
+      title_questionnaire
+      description_questionnaire
+      question {
+        nextToken
+        startedAt
+      }
+      _version
+      _deleted
+      _lastChangedAt
+    }
+    _version
+    _deleted
+    _lastChangedAt
+  }
+}
+subscription OnUpdateQuestion {
+  onUpdateQuestion {
+    id_question
+    text_question
+    question_type
+    list_options
+    questionnaire {
+      id_questionnaire
+      image_questionnaire
+      title_questionnaire
+      description_questionnaire
+      question {
+        nextToken
+        startedAt
+      }
+      _version
+      _deleted
+      _lastChangedAt
+    }
+    _version
+    _deleted
+    _lastChangedAt
+  }
+}
+subscription OnDeleteQuestion {
+  onDeleteQuestion {
+    id_question
+    text_question
+    question_type
+    list_options
+    questionnaire {
+      id_questionnaire
+      image_questionnaire
+      title_questionnaire
+      description_questionnaire
+      question {
+        nextToken
+        startedAt
+      }
+      _version
+      _deleted
+      _lastChangedAt
+    }
+    _version
+    _deleted
+    _lastChangedAt
+  }
+}
+subscription OnCreateResponses {
+  onCreateResponses {
+    id_responses
+    question {
+      id_question
+      text_question
+      question_type
+      list_options
+      questionnaire {
+        id_questionnaire
+        image_questionnaire
+        title_questionnaire
+        description_questionnaire
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      _version
+      _deleted
+      _lastChangedAt
+    }
+    response
+    group {
+      id
+      responses {
+        nextToken
+        startedAt
+      }
+      _version
+      _deleted
+      _lastChangedAt
+    }
+    _version
+    _deleted
+    _lastChangedAt
+  }
+}
+subscription OnUpdateResponses {
+  onUpdateResponses {
+    id_responses
+    question {
+      id_question
+      text_question
+      question_type
+      list_options
+      questionnaire {
+        id_questionnaire
+        image_questionnaire
+        title_questionnaire
+        description_questionnaire
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      _version
+      _deleted
+      _lastChangedAt
+    }
+    response
+    group {
+      id
+      responses {
+        nextToken
+        startedAt
+      }
+      _version
+      _deleted
+      _lastChangedAt
+    }
+    _version
+    _deleted
+    _lastChangedAt
+  }
+}
+subscription OnDeleteResponses {
+  onDeleteResponses {
+    id_responses
+    question {
+      id_question
+      text_question
+      question_type
+      list_options
+      questionnaire {
+        id_questionnaire
+        image_questionnaire
+        title_questionnaire
+        description_questionnaire
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      _version
+      _deleted
+      _lastChangedAt
+    }
+    response
+    group {
+      id
+      responses {
+        nextToken
+        startedAt
+      }
+      _version
+      _deleted
+      _lastChangedAt
+    }
+    _version
+    _deleted
+    _lastChangedAt
+  }
+}
+subscription OnCreateTestEntries {
+  onCreateTestEntries {
+    id
+    responses {
+      items {
+        id_responses
+        response
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      nextToken
+      startedAt
+    }
+    _version
+    _deleted
+    _lastChangedAt
+  }
+}
+subscription OnUpdateTestEntries {
+  onUpdateTestEntries {
+    id
+    responses {
+      items {
+        id_responses
+        response
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      nextToken
+      startedAt
+    }
+    _version
+    _deleted
+    _lastChangedAt
+  }
+}
+subscription OnDeleteTestEntries {
+  onDeleteTestEntries {
+    id
+    responses {
+      items {
+        id_responses
+        response
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      nextToken
+      startedAt
+    }
+    _version
+    _deleted
+    _lastChangedAt
+  }
+}
+subscription OnCreateAdvice {
+  onCreateAdvice {
+    id_advice
+    title
+    description
+    detail
+    url_background_image
+    url_thumbnail_image
+    _version
+    _deleted
+    _lastChangedAt
+  }
+}
+subscription OnUpdateAdvice {
+  onUpdateAdvice {
+    id_advice
+    title
+    description
+    detail
+    url_background_image
+    url_thumbnail_image
+    _version
+    _deleted
+    _lastChangedAt
+  }
+}
+subscription OnDeleteAdvice {
+  onDeleteAdvice {
+    id_advice
+    title
+    description
+    detail
+    url_background_image
+    url_thumbnail_image
+    _version
+    _deleted
+    _lastChangedAt
+  }
+}
