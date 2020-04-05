@@ -12,7 +12,7 @@ query SyncNews(
     lastSync: $lastSync
   ) {
     items {
-      id_news
+      id
       title
       description
       detail
@@ -28,7 +28,7 @@ query SyncNews(
 }
 query GetNews($id: ID!) {
   getNews(id: $id) {
-    id_news
+    id
     title
     description
     detail
@@ -46,7 +46,7 @@ query ListNewss(
 ) {
   listNewss(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
-      id_news
+      id
       title
       description
       detail
@@ -73,7 +73,7 @@ query SyncMaps(
     lastSync: $lastSync
   ) {
     items {
-      id_map
+      id
       title
       description
       url_map
@@ -87,7 +87,7 @@ query SyncMaps(
 }
 query GetMap($id: ID!) {
   getMap(id: $id) {
-    id_map
+    id
     title
     description
     url_map
@@ -99,7 +99,7 @@ query GetMap($id: ID!) {
 query ListMaps($filter: ModelMapFilterInput, $limit: Int, $nextToken: String) {
   listMaps(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
-      id_map
+      id
       title
       description
       url_map
@@ -124,7 +124,7 @@ query SyncUsers(
     lastSync: $lastSync
   ) {
     items {
-      id_user
+      id
       tests {
         nextToken
         startedAt
@@ -139,10 +139,10 @@ query SyncUsers(
 }
 query GetUser($id: ID!) {
   getUser(id: $id) {
-    id_user
+    id
     tests {
       items {
-        id_test
+        id
         image_test
         test_description
         test_result
@@ -165,7 +165,7 @@ query ListUsers(
 ) {
   listUsers(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
-      id_user
+      id
       tests {
         nextToken
         startedAt
@@ -191,12 +191,12 @@ query SyncTests(
     lastSync: $lastSync
   ) {
     items {
-      id_test
+      id
       image_test
       test_description
       test_result
       questionnaire {
-        id_questionnaire
+        id
         image_questionnaire
         title_questionnaire
         description_questionnaire
@@ -205,7 +205,7 @@ query SyncTests(
         _lastChangedAt
       }
       user {
-        id_user
+        id
         _version
         _deleted
         _lastChangedAt
@@ -220,12 +220,12 @@ query SyncTests(
 }
 query GetTest($id: ID!) {
   getTest(id: $id) {
-    id_test
+    id
     image_test
     test_description
     test_result
     questionnaire {
-      id_questionnaire
+      id
       image_questionnaire
       title_questionnaire
       description_questionnaire
@@ -238,7 +238,7 @@ query GetTest($id: ID!) {
       _lastChangedAt
     }
     user {
-      id_user
+      id
       tests {
         nextToken
         startedAt
@@ -259,12 +259,12 @@ query ListTests(
 ) {
   listTests(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
-      id_test
+      id
       image_test
       test_description
       test_result
       questionnaire {
-        id_questionnaire
+        id
         image_questionnaire
         title_questionnaire
         description_questionnaire
@@ -273,7 +273,7 @@ query ListTests(
         _lastChangedAt
       }
       user {
-        id_user
+        id
         _version
         _deleted
         _lastChangedAt
@@ -299,7 +299,7 @@ query SyncQuestionnaires(
     lastSync: $lastSync
   ) {
     items {
-      id_questionnaire
+      id
       image_questionnaire
       title_questionnaire
       description_questionnaire
@@ -317,13 +317,13 @@ query SyncQuestionnaires(
 }
 query GetQuestionnaire($id: ID!) {
   getQuestionnaire(id: $id) {
-    id_questionnaire
+    id
     image_questionnaire
     title_questionnaire
     description_questionnaire
     question {
       items {
-        id_question
+        id
         text_question
         question_type
         list_options
@@ -346,7 +346,7 @@ query ListQuestionnaires(
 ) {
   listQuestionnaires(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
-      id_questionnaire
+      id
       image_questionnaire
       title_questionnaire
       description_questionnaire
@@ -375,12 +375,12 @@ query SyncQuestions(
     lastSync: $lastSync
   ) {
     items {
-      id_question
+      id
       text_question
       question_type
       list_options
       questionnaire {
-        id_questionnaire
+        id
         image_questionnaire
         title_questionnaire
         description_questionnaire
@@ -398,12 +398,12 @@ query SyncQuestions(
 }
 query GetQuestion($id: ID!) {
   getQuestion(id: $id) {
-    id_question
+    id
     text_question
     question_type
     list_options
     questionnaire {
-      id_questionnaire
+      id
       image_questionnaire
       title_questionnaire
       description_questionnaire
@@ -427,12 +427,12 @@ query ListQuestions(
 ) {
   listQuestions(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
-      id_question
+      id
       text_question
       question_type
       list_options
       questionnaire {
-        id_questionnaire
+        id
         image_questionnaire
         title_questionnaire
         description_questionnaire
@@ -461,9 +461,9 @@ query SyncResponses(
     lastSync: $lastSync
   ) {
     items {
-      id_responses
+      id
       question {
-        id_question
+        id
         text_question
         question_type
         list_options
@@ -488,14 +488,14 @@ query SyncResponses(
 }
 query GetResponses($id: ID!) {
   getResponses(id: $id) {
-    id_responses
+    id
     question {
-      id_question
+      id
       text_question
       question_type
       list_options
       questionnaire {
-        id_questionnaire
+        id
         image_questionnaire
         title_questionnaire
         description_questionnaire
@@ -530,9 +530,9 @@ query ListResponsess(
 ) {
   listResponsess(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
-      id_responses
+      id
       question {
-        id_question
+        id
         text_question
         question_type
         list_options
@@ -586,7 +586,7 @@ query GetTestEntries($id: ID!) {
     id
     responses {
       items {
-        id_responses
+        id
         response
         _version
         _deleted
@@ -633,7 +633,7 @@ query SyncAdvice(
     lastSync: $lastSync
   ) {
     items {
-      id_advice
+      id
       title
       description
       detail
@@ -649,7 +649,7 @@ query SyncAdvice(
 }
 query GetAdvice($id: ID!) {
   getAdvice(id: $id) {
-    id_advice
+    id
     title
     description
     detail
@@ -667,7 +667,7 @@ query ListAdvices(
 ) {
   listAdvices(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
-      id_advice
+      id
       title
       description
       detail

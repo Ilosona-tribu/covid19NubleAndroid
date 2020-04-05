@@ -4,7 +4,7 @@ mutation CreateNews(
   $condition: ModelNewsConditionInput
 ) {
   createNews(input: $input, condition: $condition) {
-    id_news
+    id
     title
     description
     detail
@@ -20,7 +20,7 @@ mutation UpdateNews(
   $condition: ModelNewsConditionInput
 ) {
   updateNews(input: $input, condition: $condition) {
-    id_news
+    id
     title
     description
     detail
@@ -36,7 +36,7 @@ mutation DeleteNews(
   $condition: ModelNewsConditionInput
 ) {
   deleteNews(input: $input, condition: $condition) {
-    id_news
+    id
     title
     description
     detail
@@ -52,7 +52,7 @@ mutation CreateMap(
   $condition: ModelMapConditionInput
 ) {
   createMap(input: $input, condition: $condition) {
-    id_map
+    id
     title
     description
     url_map
@@ -66,7 +66,7 @@ mutation UpdateMap(
   $condition: ModelMapConditionInput
 ) {
   updateMap(input: $input, condition: $condition) {
-    id_map
+    id
     title
     description
     url_map
@@ -80,7 +80,7 @@ mutation DeleteMap(
   $condition: ModelMapConditionInput
 ) {
   deleteMap(input: $input, condition: $condition) {
-    id_map
+    id
     title
     description
     url_map
@@ -94,10 +94,10 @@ mutation CreateUser(
   $condition: ModelUserConditionInput
 ) {
   createUser(input: $input, condition: $condition) {
-    id_user
+    id
     tests {
       items {
-        id_test
+        id
         image_test
         test_description
         test_result
@@ -118,10 +118,10 @@ mutation UpdateUser(
   $condition: ModelUserConditionInput
 ) {
   updateUser(input: $input, condition: $condition) {
-    id_user
+    id
     tests {
       items {
-        id_test
+        id
         image_test
         test_description
         test_result
@@ -142,10 +142,10 @@ mutation DeleteUser(
   $condition: ModelUserConditionInput
 ) {
   deleteUser(input: $input, condition: $condition) {
-    id_user
+    id
     tests {
       items {
-        id_test
+        id
         image_test
         test_description
         test_result
@@ -166,12 +166,12 @@ mutation CreateTest(
   $condition: ModelTestConditionInput
 ) {
   createTest(input: $input, condition: $condition) {
-    id_test
+    id
     image_test
     test_description
     test_result
     questionnaire {
-      id_questionnaire
+      id
       image_questionnaire
       title_questionnaire
       description_questionnaire
@@ -184,7 +184,7 @@ mutation CreateTest(
       _lastChangedAt
     }
     user {
-      id_user
+      id
       tests {
         nextToken
         startedAt
@@ -203,12 +203,12 @@ mutation UpdateTest(
   $condition: ModelTestConditionInput
 ) {
   updateTest(input: $input, condition: $condition) {
-    id_test
+    id
     image_test
     test_description
     test_result
     questionnaire {
-      id_questionnaire
+      id
       image_questionnaire
       title_questionnaire
       description_questionnaire
@@ -221,7 +221,7 @@ mutation UpdateTest(
       _lastChangedAt
     }
     user {
-      id_user
+      id
       tests {
         nextToken
         startedAt
@@ -240,12 +240,12 @@ mutation DeleteTest(
   $condition: ModelTestConditionInput
 ) {
   deleteTest(input: $input, condition: $condition) {
-    id_test
+    id
     image_test
     test_description
     test_result
     questionnaire {
-      id_questionnaire
+      id
       image_questionnaire
       title_questionnaire
       description_questionnaire
@@ -258,7 +258,7 @@ mutation DeleteTest(
       _lastChangedAt
     }
     user {
-      id_user
+      id
       tests {
         nextToken
         startedAt
@@ -277,13 +277,13 @@ mutation CreateQuestionnaire(
   $condition: ModelQuestionnaireConditionInput
 ) {
   createQuestionnaire(input: $input, condition: $condition) {
-    id_questionnaire
+    id
     image_questionnaire
     title_questionnaire
     description_questionnaire
     question {
       items {
-        id_question
+        id
         text_question
         question_type
         list_options
@@ -304,13 +304,13 @@ mutation UpdateQuestionnaire(
   $condition: ModelQuestionnaireConditionInput
 ) {
   updateQuestionnaire(input: $input, condition: $condition) {
-    id_questionnaire
+    id
     image_questionnaire
     title_questionnaire
     description_questionnaire
     question {
       items {
-        id_question
+        id
         text_question
         question_type
         list_options
@@ -331,13 +331,13 @@ mutation DeleteQuestionnaire(
   $condition: ModelQuestionnaireConditionInput
 ) {
   deleteQuestionnaire(input: $input, condition: $condition) {
-    id_questionnaire
+    id
     image_questionnaire
     title_questionnaire
     description_questionnaire
     question {
       items {
-        id_question
+        id
         text_question
         question_type
         list_options
@@ -358,12 +358,12 @@ mutation CreateQuestion(
   $condition: ModelQuestionConditionInput
 ) {
   createQuestion(input: $input, condition: $condition) {
-    id_question
+    id
     text_question
     question_type
     list_options
     questionnaire {
-      id_questionnaire
+      id
       image_questionnaire
       title_questionnaire
       description_questionnaire
@@ -385,12 +385,12 @@ mutation UpdateQuestion(
   $condition: ModelQuestionConditionInput
 ) {
   updateQuestion(input: $input, condition: $condition) {
-    id_question
+    id
     text_question
     question_type
     list_options
     questionnaire {
-      id_questionnaire
+      id
       image_questionnaire
       title_questionnaire
       description_questionnaire
@@ -412,12 +412,12 @@ mutation DeleteQuestion(
   $condition: ModelQuestionConditionInput
 ) {
   deleteQuestion(input: $input, condition: $condition) {
-    id_question
+    id
     text_question
     question_type
     list_options
     questionnaire {
-      id_questionnaire
+      id
       image_questionnaire
       title_questionnaire
       description_questionnaire
@@ -439,14 +439,14 @@ mutation CreateResponses(
   $condition: ModelResponsesConditionInput
 ) {
   createResponses(input: $input, condition: $condition) {
-    id_responses
+    id
     question {
-      id_question
+      id
       text_question
       question_type
       list_options
       questionnaire {
-        id_questionnaire
+        id
         image_questionnaire
         title_questionnaire
         description_questionnaire
@@ -479,14 +479,14 @@ mutation UpdateResponses(
   $condition: ModelResponsesConditionInput
 ) {
   updateResponses(input: $input, condition: $condition) {
-    id_responses
+    id
     question {
-      id_question
+      id
       text_question
       question_type
       list_options
       questionnaire {
-        id_questionnaire
+        id
         image_questionnaire
         title_questionnaire
         description_questionnaire
@@ -519,14 +519,14 @@ mutation DeleteResponses(
   $condition: ModelResponsesConditionInput
 ) {
   deleteResponses(input: $input, condition: $condition) {
-    id_responses
+    id
     question {
-      id_question
+      id
       text_question
       question_type
       list_options
       questionnaire {
-        id_questionnaire
+        id
         image_questionnaire
         title_questionnaire
         description_questionnaire
@@ -562,7 +562,7 @@ mutation CreateTestEntries(
     id
     responses {
       items {
-        id_responses
+        id
         response
         _version
         _deleted
@@ -584,7 +584,7 @@ mutation UpdateTestEntries(
     id
     responses {
       items {
-        id_responses
+        id
         response
         _version
         _deleted
@@ -606,7 +606,7 @@ mutation DeleteTestEntries(
     id
     responses {
       items {
-        id_responses
+        id
         response
         _version
         _deleted
@@ -625,7 +625,7 @@ mutation CreateAdvice(
   $condition: ModelAdviceConditionInput
 ) {
   createAdvice(input: $input, condition: $condition) {
-    id_advice
+    id
     title
     description
     detail
@@ -641,7 +641,7 @@ mutation UpdateAdvice(
   $condition: ModelAdviceConditionInput
 ) {
   updateAdvice(input: $input, condition: $condition) {
-    id_advice
+    id
     title
     description
     detail
@@ -657,7 +657,7 @@ mutation DeleteAdvice(
   $condition: ModelAdviceConditionInput
 ) {
   deleteAdvice(input: $input, condition: $condition) {
-    id_advice
+    id
     title
     description
     detail

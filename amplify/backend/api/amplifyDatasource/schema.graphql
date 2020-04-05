@@ -1,5 +1,5 @@
 type News @model {
-  id_news: String!
+  id:ID!
   title: String!
   description: String!
   detail: String!
@@ -8,42 +8,42 @@ type News @model {
 }
 
 type Map @model {
-    id_map: String!
+    id:ID!
     title: String!
     description: String!
     url_map: AWSURL
 }
 
 type User @model {
-  id_user : String!
-  tests : [Test] @connection(name: "UserTests")
+    id:ID!
+    tests : [Test] @connection(name: "UserTests")
 }
 
 type Test @model {
-  id_test : String!
-  image_test: AWSURL
-  test_description:String!
-  test_result : String!
-  questionnaire : Questionnaire @connection
-  user: User @connection(name: "UserTests")
+    id:ID!
+    image_test: AWSURL
+    test_description:String!
+    test_result : String!
+    questionnaire : Questionnaire @connection
+    user: User @connection(name: "UserTests")
 }
 
 
 type Questionnaire @model {
-  id_questionnaire : String!
-  image_questionnaire:AWSURL
-  title_questionnaire: String!
-  description_questionnaire: String!
-  question: [Question] @connection(name: "QuestionnaireQuestions")
+    id:ID!
+    image_questionnaire:AWSURL
+    title_questionnaire: String!
+    description_questionnaire: String!
+    question: [Question] @connection(name: "QuestionnaireQuestions")
 }
 
 
 type Question @model {
-  id_question : String!
-  text_question: String!
-  question_type:QuestionType!
-  list_options : [String]
-  questionnaire: Questionnaire @connection(name: "QuestionnaireQuestions")
+    id:ID!
+    text_question: String!
+    question_type:QuestionType!
+    list_options : [String]
+    questionnaire: Questionnaire @connection(name: "QuestionnaireQuestions")
 }
 
 enum QuestionType {
@@ -53,7 +53,7 @@ enum QuestionType {
 }
 
 type Responses @model {
-    id_responses: String!
+    id:ID!
     question: Question! @connection
     response: String!
     group: TestEntries @connection(name: "TestEntryResponses")
@@ -65,10 +65,10 @@ type TestEntries @model {
 }
 
 type Advice @model {
-  id_advice: String!
-  title: String!
-  description: String!
-  detail: String!
-  url_background_image: AWSURL
-  url_thumbnail_image:AWSURL
+    id:ID!
+    title: String!
+    description: String!
+    detail: String!
+    url_background_image: AWSURL
+    url_thumbnail_image:AWSURL
 }

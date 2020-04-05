@@ -20,21 +20,15 @@ import static com.amplifyframework.core.model.query.predicate.QueryField.field;
 @ModelConfig(pluralName = "Maps")
 public final class Map implements Model {
   public static final QueryField ID = field("id");
-  public static final QueryField ID_MAP = field("id_map");
   public static final QueryField TITLE = field("title");
   public static final QueryField DESCRIPTION = field("description");
   public static final QueryField URL_MAP = field("url_map");
   private final @ModelField(targetType="ID", isRequired = true) String id;
-  private final @ModelField(targetType="String", isRequired = true) String id_map;
   private final @ModelField(targetType="String", isRequired = true) String title;
   private final @ModelField(targetType="String", isRequired = true) String description;
   private final @ModelField(targetType="AWSURL") String url_map;
   public String getId() {
       return id;
-  }
-  
-  public String getIdMap() {
-      return id_map;
   }
   
   public String getTitle() {
@@ -49,9 +43,8 @@ public final class Map implements Model {
       return url_map;
   }
   
-  private Map(String id, String id_map, String title, String description, String url_map) {
+  private Map(String id, String title, String description, String url_map) {
     this.id = id;
-    this.id_map = id_map;
     this.title = title;
     this.description = description;
     this.url_map = url_map;
@@ -66,7 +59,6 @@ public final class Map implements Model {
       } else {
       Map map = (Map) obj;
       return ObjectsCompat.equals(getId(), map.getId()) &&
-              ObjectsCompat.equals(getIdMap(), map.getIdMap()) &&
               ObjectsCompat.equals(getTitle(), map.getTitle()) &&
               ObjectsCompat.equals(getDescription(), map.getDescription()) &&
               ObjectsCompat.equals(getUrlMap(), map.getUrlMap());
@@ -77,7 +69,6 @@ public final class Map implements Model {
    public int hashCode() {
     return new StringBuilder()
       .append(getId())
-      .append(getIdMap())
       .append(getTitle())
       .append(getDescription())
       .append(getUrlMap())
@@ -85,7 +76,7 @@ public final class Map implements Model {
       .hashCode();
   }
   
-  public static IdMapStep builder() {
+  public static TitleStep builder() {
       return new Builder();
   }
   
@@ -112,23 +103,16 @@ public final class Map implements Model {
       id,
       null,
       null,
-      null,
       null
     );
   }
   
   public CopyOfBuilder copyOfBuilder() {
     return new CopyOfBuilder(id,
-      id_map,
       title,
       description,
       url_map);
   }
-  public interface IdMapStep {
-    TitleStep idMap(String idMap);
-  }
-  
-
   public interface TitleStep {
     DescriptionStep title(String title);
   }
@@ -146,9 +130,8 @@ public final class Map implements Model {
   }
   
 
-  public static class Builder implements IdMapStep, TitleStep, DescriptionStep, BuildStep {
+  public static class Builder implements TitleStep, DescriptionStep, BuildStep {
     private String id;
-    private String id_map;
     private String title;
     private String description;
     private String url_map;
@@ -158,17 +141,9 @@ public final class Map implements Model {
         
         return new Map(
           id,
-          id_map,
           title,
           description,
           url_map);
-    }
-    
-    @Override
-     public TitleStep idMap(String idMap) {
-        Objects.requireNonNull(idMap);
-        this.id_map = idMap;
-        return this;
     }
     
     @Override
@@ -214,17 +189,11 @@ public final class Map implements Model {
   
 
   public final class CopyOfBuilder extends Builder {
-    private CopyOfBuilder(String id, String idMap, String title, String description, String urlMap) {
+    private CopyOfBuilder(String id, String title, String description, String urlMap) {
       super.id(id);
-      super.idMap(idMap)
-        .title(title)
+      super.title(title)
         .description(description)
         .urlMap(urlMap);
-    }
-    
-    @Override
-     public CopyOfBuilder idMap(String idMap) {
-      return (CopyOfBuilder) super.idMap(idMap);
     }
     
     @Override

@@ -20,14 +20,12 @@ import static com.amplifyframework.core.model.query.predicate.QueryField.field;
 @ModelConfig(pluralName = "Advice")
 public final class Advice implements Model {
   public static final QueryField ID = field("id");
-  public static final QueryField ID_ADVICE = field("id_advice");
   public static final QueryField TITLE = field("title");
   public static final QueryField DESCRIPTION = field("description");
   public static final QueryField DETAIL = field("detail");
   public static final QueryField URL_BACKGROUND_IMAGE = field("url_background_image");
   public static final QueryField URL_THUMBNAIL_IMAGE = field("url_thumbnail_image");
   private final @ModelField(targetType="ID", isRequired = true) String id;
-  private final @ModelField(targetType="String", isRequired = true) String id_advice;
   private final @ModelField(targetType="String", isRequired = true) String title;
   private final @ModelField(targetType="String", isRequired = true) String description;
   private final @ModelField(targetType="String", isRequired = true) String detail;
@@ -35,10 +33,6 @@ public final class Advice implements Model {
   private final @ModelField(targetType="AWSURL") String url_thumbnail_image;
   public String getId() {
       return id;
-  }
-  
-  public String getIdAdvice() {
-      return id_advice;
   }
   
   public String getTitle() {
@@ -61,9 +55,8 @@ public final class Advice implements Model {
       return url_thumbnail_image;
   }
   
-  private Advice(String id, String id_advice, String title, String description, String detail, String url_background_image, String url_thumbnail_image) {
+  private Advice(String id, String title, String description, String detail, String url_background_image, String url_thumbnail_image) {
     this.id = id;
-    this.id_advice = id_advice;
     this.title = title;
     this.description = description;
     this.detail = detail;
@@ -80,7 +73,6 @@ public final class Advice implements Model {
       } else {
       Advice advice = (Advice) obj;
       return ObjectsCompat.equals(getId(), advice.getId()) &&
-              ObjectsCompat.equals(getIdAdvice(), advice.getIdAdvice()) &&
               ObjectsCompat.equals(getTitle(), advice.getTitle()) &&
               ObjectsCompat.equals(getDescription(), advice.getDescription()) &&
               ObjectsCompat.equals(getDetail(), advice.getDetail()) &&
@@ -93,7 +85,6 @@ public final class Advice implements Model {
    public int hashCode() {
     return new StringBuilder()
       .append(getId())
-      .append(getIdAdvice())
       .append(getTitle())
       .append(getDescription())
       .append(getDetail())
@@ -103,7 +94,7 @@ public final class Advice implements Model {
       .hashCode();
   }
   
-  public static IdAdviceStep builder() {
+  public static TitleStep builder() {
       return new Builder();
   }
   
@@ -132,25 +123,18 @@ public final class Advice implements Model {
       null,
       null,
       null,
-      null,
       null
     );
   }
   
   public CopyOfBuilder copyOfBuilder() {
     return new CopyOfBuilder(id,
-      id_advice,
       title,
       description,
       detail,
       url_background_image,
       url_thumbnail_image);
   }
-  public interface IdAdviceStep {
-    TitleStep idAdvice(String idAdvice);
-  }
-  
-
   public interface TitleStep {
     DescriptionStep title(String title);
   }
@@ -174,9 +158,8 @@ public final class Advice implements Model {
   }
   
 
-  public static class Builder implements IdAdviceStep, TitleStep, DescriptionStep, DetailStep, BuildStep {
+  public static class Builder implements TitleStep, DescriptionStep, DetailStep, BuildStep {
     private String id;
-    private String id_advice;
     private String title;
     private String description;
     private String detail;
@@ -188,19 +171,11 @@ public final class Advice implements Model {
         
         return new Advice(
           id,
-          id_advice,
           title,
           description,
           detail,
           url_background_image,
           url_thumbnail_image);
-    }
-    
-    @Override
-     public TitleStep idAdvice(String idAdvice) {
-        Objects.requireNonNull(idAdvice);
-        this.id_advice = idAdvice;
-        return this;
     }
     
     @Override
@@ -259,19 +234,13 @@ public final class Advice implements Model {
   
 
   public final class CopyOfBuilder extends Builder {
-    private CopyOfBuilder(String id, String idAdvice, String title, String description, String detail, String urlBackgroundImage, String urlThumbnailImage) {
+    private CopyOfBuilder(String id, String title, String description, String detail, String urlBackgroundImage, String urlThumbnailImage) {
       super.id(id);
-      super.idAdvice(idAdvice)
-        .title(title)
+      super.title(title)
         .description(description)
         .detail(detail)
         .urlBackgroundImage(urlBackgroundImage)
         .urlThumbnailImage(urlThumbnailImage);
-    }
-    
-    @Override
-     public CopyOfBuilder idAdvice(String idAdvice) {
-      return (CopyOfBuilder) super.idAdvice(idAdvice);
     }
     
     @Override

@@ -21,22 +21,16 @@ import static com.amplifyframework.core.model.query.predicate.QueryField.field;
 @ModelConfig(pluralName = "Questionnaires")
 public final class Questionnaire implements Model {
   public static final QueryField ID = field("id");
-  public static final QueryField ID_QUESTIONNAIRE = field("id_questionnaire");
   public static final QueryField IMAGE_QUESTIONNAIRE = field("image_questionnaire");
   public static final QueryField TITLE_QUESTIONNAIRE = field("title_questionnaire");
   public static final QueryField DESCRIPTION_QUESTIONNAIRE = field("description_questionnaire");
   private final @ModelField(targetType="ID", isRequired = true) String id;
-  private final @ModelField(targetType="String", isRequired = true) String id_questionnaire;
   private final @ModelField(targetType="AWSURL") String image_questionnaire;
   private final @ModelField(targetType="String", isRequired = true) String title_questionnaire;
   private final @ModelField(targetType="String", isRequired = true) String description_questionnaire;
   private final @ModelField(targetType="Question") @HasMany(associatedWith = "questionnaire", type = Question.class) List<Question> question = null;
   public String getId() {
       return id;
-  }
-  
-  public String getIdQuestionnaire() {
-      return id_questionnaire;
   }
   
   public String getImageQuestionnaire() {
@@ -55,9 +49,8 @@ public final class Questionnaire implements Model {
       return question;
   }
   
-  private Questionnaire(String id, String id_questionnaire, String image_questionnaire, String title_questionnaire, String description_questionnaire) {
+  private Questionnaire(String id, String image_questionnaire, String title_questionnaire, String description_questionnaire) {
     this.id = id;
-    this.id_questionnaire = id_questionnaire;
     this.image_questionnaire = image_questionnaire;
     this.title_questionnaire = title_questionnaire;
     this.description_questionnaire = description_questionnaire;
@@ -72,7 +65,6 @@ public final class Questionnaire implements Model {
       } else {
       Questionnaire questionnaire = (Questionnaire) obj;
       return ObjectsCompat.equals(getId(), questionnaire.getId()) &&
-              ObjectsCompat.equals(getIdQuestionnaire(), questionnaire.getIdQuestionnaire()) &&
               ObjectsCompat.equals(getImageQuestionnaire(), questionnaire.getImageQuestionnaire()) &&
               ObjectsCompat.equals(getTitleQuestionnaire(), questionnaire.getTitleQuestionnaire()) &&
               ObjectsCompat.equals(getDescriptionQuestionnaire(), questionnaire.getDescriptionQuestionnaire());
@@ -83,7 +75,6 @@ public final class Questionnaire implements Model {
    public int hashCode() {
     return new StringBuilder()
       .append(getId())
-      .append(getIdQuestionnaire())
       .append(getImageQuestionnaire())
       .append(getTitleQuestionnaire())
       .append(getDescriptionQuestionnaire())
@@ -91,7 +82,7 @@ public final class Questionnaire implements Model {
       .hashCode();
   }
   
-  public static IdQuestionnaireStep builder() {
+  public static TitleQuestionnaireStep builder() {
       return new Builder();
   }
   
@@ -118,23 +109,16 @@ public final class Questionnaire implements Model {
       id,
       null,
       null,
-      null,
       null
     );
   }
   
   public CopyOfBuilder copyOfBuilder() {
     return new CopyOfBuilder(id,
-      id_questionnaire,
       image_questionnaire,
       title_questionnaire,
       description_questionnaire);
   }
-  public interface IdQuestionnaireStep {
-    TitleQuestionnaireStep idQuestionnaire(String idQuestionnaire);
-  }
-  
-
   public interface TitleQuestionnaireStep {
     DescriptionQuestionnaireStep titleQuestionnaire(String titleQuestionnaire);
   }
@@ -152,9 +136,8 @@ public final class Questionnaire implements Model {
   }
   
 
-  public static class Builder implements IdQuestionnaireStep, TitleQuestionnaireStep, DescriptionQuestionnaireStep, BuildStep {
+  public static class Builder implements TitleQuestionnaireStep, DescriptionQuestionnaireStep, BuildStep {
     private String id;
-    private String id_questionnaire;
     private String title_questionnaire;
     private String description_questionnaire;
     private String image_questionnaire;
@@ -164,17 +147,9 @@ public final class Questionnaire implements Model {
         
         return new Questionnaire(
           id,
-          id_questionnaire,
           image_questionnaire,
           title_questionnaire,
           description_questionnaire);
-    }
-    
-    @Override
-     public TitleQuestionnaireStep idQuestionnaire(String idQuestionnaire) {
-        Objects.requireNonNull(idQuestionnaire);
-        this.id_questionnaire = idQuestionnaire;
-        return this;
     }
     
     @Override
@@ -220,17 +195,11 @@ public final class Questionnaire implements Model {
   
 
   public final class CopyOfBuilder extends Builder {
-    private CopyOfBuilder(String id, String idQuestionnaire, String imageQuestionnaire, String titleQuestionnaire, String descriptionQuestionnaire) {
+    private CopyOfBuilder(String id, String imageQuestionnaire, String titleQuestionnaire, String descriptionQuestionnaire) {
       super.id(id);
-      super.idQuestionnaire(idQuestionnaire)
-        .titleQuestionnaire(titleQuestionnaire)
+      super.titleQuestionnaire(titleQuestionnaire)
         .descriptionQuestionnaire(descriptionQuestionnaire)
         .imageQuestionnaire(imageQuestionnaire);
-    }
-    
-    @Override
-     public CopyOfBuilder idQuestionnaire(String idQuestionnaire) {
-      return (CopyOfBuilder) super.idQuestionnaire(idQuestionnaire);
     }
     
     @Override

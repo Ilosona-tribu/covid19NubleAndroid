@@ -1135,11 +1135,11 @@
                 "fields": null,
                 "inputFields": [
                     {
-                        "name": "id_news",
+                        "name": "id",
                         "description": null,
                         "type": {
                             "kind": "INPUT_OBJECT",
-                            "name": "ModelStringInput",
+                            "name": "ModelIDInput",
                             "ofType": null
                         },
                         "defaultValue": null
@@ -1239,7 +1239,7 @@
             },
             {
                 "kind": "INPUT_OBJECT",
-                "name": "ModelStringInput",
+                "name": "ModelIDInput",
                 "description": null,
                 "fields": null,
                 "inputFields": [
@@ -1248,7 +1248,7 @@
                         "description": null,
                         "type": {
                             "kind": "SCALAR",
-                            "name": "String",
+                            "name": "ID",
                             "ofType": null
                         },
                         "defaultValue": null
@@ -1258,7 +1258,7 @@
                         "description": null,
                         "type": {
                             "kind": "SCALAR",
-                            "name": "String",
+                            "name": "ID",
                             "ofType": null
                         },
                         "defaultValue": null
@@ -1268,7 +1268,7 @@
                         "description": null,
                         "type": {
                             "kind": "SCALAR",
-                            "name": "String",
+                            "name": "ID",
                             "ofType": null
                         },
                         "defaultValue": null
@@ -1278,7 +1278,7 @@
                         "description": null,
                         "type": {
                             "kind": "SCALAR",
-                            "name": "String",
+                            "name": "ID",
                             "ofType": null
                         },
                         "defaultValue": null
@@ -1288,7 +1288,7 @@
                         "description": null,
                         "type": {
                             "kind": "SCALAR",
-                            "name": "String",
+                            "name": "ID",
                             "ofType": null
                         },
                         "defaultValue": null
@@ -1298,7 +1298,7 @@
                         "description": null,
                         "type": {
                             "kind": "SCALAR",
-                            "name": "String",
+                            "name": "ID",
                             "ofType": null
                         },
                         "defaultValue": null
@@ -1308,7 +1308,7 @@
                         "description": null,
                         "type": {
                             "kind": "SCALAR",
-                            "name": "String",
+                            "name": "ID",
                             "ofType": null
                         },
                         "defaultValue": null
@@ -1318,7 +1318,7 @@
                         "description": null,
                         "type": {
                             "kind": "SCALAR",
-                            "name": "String",
+                            "name": "ID",
                             "ofType": null
                         },
                         "defaultValue": null
@@ -1331,7 +1331,7 @@
                             "name": null,
                             "ofType": {
                                 "kind": "SCALAR",
-                                "name": "String",
+                                "name": "ID",
                                 "ofType": null
                             }
                         },
@@ -1342,7 +1342,7 @@
                         "description": null,
                         "type": {
                             "kind": "SCALAR",
-                            "name": "String",
+                            "name": "ID",
                             "ofType": null
                         },
                         "defaultValue": null
@@ -1384,8 +1384,8 @@
             },
             {
                 "kind": "SCALAR",
-                "name": "String",
-                "description": "The `String` scalar type represents textual data, represented as UTF-8 character sequences. The String type is most often used by GraphQL to represent free-form human-readable text.",
+                "name": "ID",
+                "description": "The `ID` scalar type represents a unique identifier, often used to refetch an object or as key for a cache. The ID type appears in a JSON response as a String; however, it is not intended to be human-readable. When expected as an input type, any string (such as `\"4\"`) or integer (such as `4`) input value will be accepted as an ID.",
                 "fields": null,
                 "inputFields": null,
                 "interfaces": null,
@@ -1569,6 +1569,161 @@
                 "possibleTypes": null
             },
             {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelStringInput",
+                "description": null,
+                "fields": null,
+                "inputFields": [
+                    {
+                        "name": "ne",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "String",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "eq",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "String",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "le",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "String",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "lt",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "String",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "ge",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "String",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "gt",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "String",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "contains",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "String",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "notContains",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "String",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "between",
+                        "description": null,
+                        "type": {
+                            "kind": "LIST",
+                            "name": null,
+                            "ofType": {
+                                "kind": "SCALAR",
+                                "name": "String",
+                                "ofType": null
+                            }
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "beginsWith",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "String",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "attributeExists",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "attributeType",
+                        "description": null,
+                        "type": {
+                            "kind": "ENUM",
+                            "name": "ModelAttributeTypes",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "size",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelSizeInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    }
+                ],
+                "interfaces": null,
+                "enumValues": null,
+                "possibleTypes": null
+            },
+            {
+                "kind": "SCALAR",
+                "name": "String",
+                "description": "The `String` scalar type represents textual data, represented as UTF-8 character sequences. The String type is most often used by GraphQL to represent free-form human-readable text.",
+                "fields": null,
+                "inputFields": null,
+                "interfaces": null,
+                "enumValues": null,
+                "possibleTypes": null
+            },
+            {
                 "kind": "SCALAR",
                 "name": "AWSTimestamp",
                 "description": null,
@@ -1635,7 +1790,7 @@
                 "description": null,
                 "fields": [
                     {
-                        "name": "id_news",
+                        "name": "id",
                         "description": null,
                         "args": [],
                         "type": {
@@ -1643,7 +1798,7 @@
                             "name": null,
                             "ofType": {
                                 "kind": "SCALAR",
-                                "name": "String",
+                                "name": "ID",
                                 "ofType": null
                             }
                         },
@@ -1783,27 +1938,17 @@
                 "possibleTypes": null
             },
             {
-                "kind": "SCALAR",
-                "name": "ID",
-                "description": "The `ID` scalar type represents a unique identifier, often used to refetch an object or as key for a cache. The ID type appears in a JSON response as a String; however, it is not intended to be human-readable. When expected as an input type, any string (such as `\"4\"`) or integer (such as `4`) input value will be accepted as an ID.",
-                "fields": null,
-                "inputFields": null,
-                "interfaces": null,
-                "enumValues": null,
-                "possibleTypes": null
-            },
-            {
                 "kind": "INPUT_OBJECT",
                 "name": "ModelMapFilterInput",
                 "description": null,
                 "fields": null,
                 "inputFields": [
                     {
-                        "name": "id_map",
+                        "name": "id",
                         "description": null,
                         "type": {
                             "kind": "INPUT_OBJECT",
-                            "name": "ModelStringInput",
+                            "name": "ModelIDInput",
                             "ofType": null
                         },
                         "defaultValue": null
@@ -1938,7 +2083,7 @@
                 "description": null,
                 "fields": [
                     {
-                        "name": "id_map",
+                        "name": "id",
                         "description": null,
                         "args": [],
                         "type": {
@@ -1946,7 +2091,7 @@
                             "name": null,
                             "ofType": {
                                 "kind": "SCALAR",
-                                "name": "String",
+                                "name": "ID",
                                 "ofType": null
                             }
                         },
@@ -2054,11 +2199,11 @@
                 "fields": null,
                 "inputFields": [
                     {
-                        "name": "id_user",
+                        "name": "id",
                         "description": null,
                         "type": {
                             "kind": "INPUT_OBJECT",
-                            "name": "ModelStringInput",
+                            "name": "ModelIDInput",
                             "ofType": null
                         },
                         "defaultValue": null
@@ -2163,7 +2308,7 @@
                 "description": null,
                 "fields": [
                     {
-                        "name": "id_user",
+                        "name": "id",
                         "description": null,
                         "args": [],
                         "type": {
@@ -2171,7 +2316,7 @@
                             "name": null,
                             "ofType": {
                                 "kind": "SCALAR",
-                                "name": "String",
+                                "name": "ID",
                                 "ofType": null
                             }
                         },
@@ -2288,11 +2433,11 @@
                 "fields": null,
                 "inputFields": [
                     {
-                        "name": "id_test",
+                        "name": "id",
                         "description": null,
                         "type": {
                             "kind": "INPUT_OBJECT",
-                            "name": "ModelStringInput",
+                            "name": "ModelIDInput",
                             "ofType": null
                         },
                         "defaultValue": null
@@ -2450,7 +2595,7 @@
                 "description": null,
                 "fields": [
                     {
-                        "name": "id_test",
+                        "name": "id",
                         "description": null,
                         "args": [],
                         "type": {
@@ -2458,7 +2603,7 @@
                             "name": null,
                             "ofType": {
                                 "kind": "SCALAR",
-                                "name": "String",
+                                "name": "ID",
                                 "ofType": null
                             }
                         },
@@ -2589,7 +2734,7 @@
                 "description": null,
                 "fields": [
                     {
-                        "name": "id_questionnaire",
+                        "name": "id",
                         "description": null,
                         "args": [],
                         "type": {
@@ -2597,7 +2742,7 @@
                             "name": null,
                             "ofType": {
                                 "kind": "SCALAR",
-                                "name": "String",
+                                "name": "ID",
                                 "ofType": null
                             }
                         },
@@ -2758,11 +2903,11 @@
                 "fields": null,
                 "inputFields": [
                     {
-                        "name": "id_question",
+                        "name": "id",
                         "description": null,
                         "type": {
                             "kind": "INPUT_OBJECT",
-                            "name": "ModelStringInput",
+                            "name": "ModelIDInput",
                             "ofType": null
                         },
                         "defaultValue": null
@@ -2957,7 +3102,7 @@
                 "description": null,
                 "fields": [
                     {
-                        "name": "id_question",
+                        "name": "id",
                         "description": null,
                         "args": [],
                         "type": {
@@ -2965,7 +3110,7 @@
                             "name": null,
                             "ofType": {
                                 "kind": "SCALAR",
-                                "name": "String",
+                                "name": "ID",
                                 "ofType": null
                             }
                         },
@@ -3089,11 +3234,11 @@
                 "fields": null,
                 "inputFields": [
                     {
-                        "name": "id_questionnaire",
+                        "name": "id",
                         "description": null,
                         "type": {
                             "kind": "INPUT_OBJECT",
-                            "name": "ModelStringInput",
+                            "name": "ModelIDInput",
                             "ofType": null
                         },
                         "defaultValue": null
@@ -3229,11 +3374,11 @@
                 "fields": null,
                 "inputFields": [
                     {
-                        "name": "id_responses",
+                        "name": "id",
                         "description": null,
                         "type": {
                             "kind": "INPUT_OBJECT",
-                            "name": "ModelStringInput",
+                            "name": "ModelIDInput",
                             "ofType": null
                         },
                         "defaultValue": null
@@ -3348,7 +3493,7 @@
                 "description": null,
                 "fields": [
                     {
-                        "name": "id_responses",
+                        "name": "id",
                         "description": null,
                         "args": [],
                         "type": {
@@ -3356,7 +3501,7 @@
                             "name": null,
                             "ofType": {
                                 "kind": "SCALAR",
-                                "name": "String",
+                                "name": "ID",
                                 "ofType": null
                             }
                         },
@@ -3641,151 +3786,6 @@
                 "possibleTypes": null
             },
             {
-                "kind": "INPUT_OBJECT",
-                "name": "ModelIDInput",
-                "description": null,
-                "fields": null,
-                "inputFields": [
-                    {
-                        "name": "ne",
-                        "description": null,
-                        "type": {
-                            "kind": "SCALAR",
-                            "name": "ID",
-                            "ofType": null
-                        },
-                        "defaultValue": null
-                    },
-                    {
-                        "name": "eq",
-                        "description": null,
-                        "type": {
-                            "kind": "SCALAR",
-                            "name": "ID",
-                            "ofType": null
-                        },
-                        "defaultValue": null
-                    },
-                    {
-                        "name": "le",
-                        "description": null,
-                        "type": {
-                            "kind": "SCALAR",
-                            "name": "ID",
-                            "ofType": null
-                        },
-                        "defaultValue": null
-                    },
-                    {
-                        "name": "lt",
-                        "description": null,
-                        "type": {
-                            "kind": "SCALAR",
-                            "name": "ID",
-                            "ofType": null
-                        },
-                        "defaultValue": null
-                    },
-                    {
-                        "name": "ge",
-                        "description": null,
-                        "type": {
-                            "kind": "SCALAR",
-                            "name": "ID",
-                            "ofType": null
-                        },
-                        "defaultValue": null
-                    },
-                    {
-                        "name": "gt",
-                        "description": null,
-                        "type": {
-                            "kind": "SCALAR",
-                            "name": "ID",
-                            "ofType": null
-                        },
-                        "defaultValue": null
-                    },
-                    {
-                        "name": "contains",
-                        "description": null,
-                        "type": {
-                            "kind": "SCALAR",
-                            "name": "ID",
-                            "ofType": null
-                        },
-                        "defaultValue": null
-                    },
-                    {
-                        "name": "notContains",
-                        "description": null,
-                        "type": {
-                            "kind": "SCALAR",
-                            "name": "ID",
-                            "ofType": null
-                        },
-                        "defaultValue": null
-                    },
-                    {
-                        "name": "between",
-                        "description": null,
-                        "type": {
-                            "kind": "LIST",
-                            "name": null,
-                            "ofType": {
-                                "kind": "SCALAR",
-                                "name": "ID",
-                                "ofType": null
-                            }
-                        },
-                        "defaultValue": null
-                    },
-                    {
-                        "name": "beginsWith",
-                        "description": null,
-                        "type": {
-                            "kind": "SCALAR",
-                            "name": "ID",
-                            "ofType": null
-                        },
-                        "defaultValue": null
-                    },
-                    {
-                        "name": "attributeExists",
-                        "description": null,
-                        "type": {
-                            "kind": "SCALAR",
-                            "name": "Boolean",
-                            "ofType": null
-                        },
-                        "defaultValue": null
-                    },
-                    {
-                        "name": "attributeType",
-                        "description": null,
-                        "type": {
-                            "kind": "ENUM",
-                            "name": "ModelAttributeTypes",
-                            "ofType": null
-                        },
-                        "defaultValue": null
-                    },
-                    {
-                        "name": "size",
-                        "description": null,
-                        "type": {
-                            "kind": "INPUT_OBJECT",
-                            "name": "ModelSizeInput",
-                            "ofType": null
-                        },
-                        "defaultValue": null
-                    }
-                ],
-                "interfaces": null,
-                "enumValues": null,
-                "possibleTypes": null
-            },
-            {
                 "kind": "OBJECT",
                 "name": "ModelTestEntriesConnection",
                 "description": null,
@@ -3843,11 +3843,11 @@
                 "fields": null,
                 "inputFields": [
                     {
-                        "name": "id_advice",
+                        "name": "id",
                         "description": null,
                         "type": {
                             "kind": "INPUT_OBJECT",
-                            "name": "ModelStringInput",
+                            "name": "ModelIDInput",
                             "ofType": null
                         },
                         "defaultValue": null
@@ -4002,7 +4002,7 @@
                 "description": null,
                 "fields": [
                     {
-                        "name": "id_advice",
+                        "name": "id",
                         "description": null,
                         "args": [],
                         "type": {
@@ -4010,7 +4010,7 @@
                             "name": null,
                             "ofType": {
                                 "kind": "SCALAR",
-                                "name": "String",
+                                "name": "ID",
                                 "ofType": null
                             }
                         },
@@ -5156,16 +5156,12 @@
                 "fields": null,
                 "inputFields": [
                     {
-                        "name": "id_news",
+                        "name": "id",
                         "description": null,
                         "type": {
-                            "kind": "NON_NULL",
-                            "name": null,
-                            "ofType": {
-                                "kind": "SCALAR",
-                                "name": "String",
-                                "ofType": null
-                            }
+                            "kind": "SCALAR",
+                            "name": "ID",
+                            "ofType": null
                         },
                         "defaultValue": null
                     },
@@ -5252,16 +5248,6 @@
                 "description": null,
                 "fields": null,
                 "inputFields": [
-                    {
-                        "name": "id_news",
-                        "description": null,
-                        "type": {
-                            "kind": "INPUT_OBJECT",
-                            "name": "ModelStringInput",
-                            "ofType": null
-                        },
-                        "defaultValue": null
-                    },
                     {
                         "name": "title",
                         "description": null,
@@ -5362,12 +5348,16 @@
                 "fields": null,
                 "inputFields": [
                     {
-                        "name": "id_news",
+                        "name": "id",
                         "description": null,
                         "type": {
-                            "kind": "SCALAR",
-                            "name": "String",
-                            "ofType": null
+                            "kind": "NON_NULL",
+                            "name": null,
+                            "ofType": {
+                                "kind": "SCALAR",
+                                "name": "ID",
+                                "ofType": null
+                            }
                         },
                         "defaultValue": null
                     },
@@ -5474,16 +5464,12 @@
                 "fields": null,
                 "inputFields": [
                     {
-                        "name": "id_map",
+                        "name": "id",
                         "description": null,
                         "type": {
-                            "kind": "NON_NULL",
-                            "name": null,
-                            "ofType": {
-                                "kind": "SCALAR",
-                                "name": "String",
-                                "ofType": null
-                            }
+                            "kind": "SCALAR",
+                            "name": "ID",
+                            "ofType": null
                         },
                         "defaultValue": null
                     },
@@ -5546,16 +5532,6 @@
                 "description": null,
                 "fields": null,
                 "inputFields": [
-                    {
-                        "name": "id_map",
-                        "description": null,
-                        "type": {
-                            "kind": "INPUT_OBJECT",
-                            "name": "ModelStringInput",
-                            "ofType": null
-                        },
-                        "defaultValue": null
-                    },
                     {
                         "name": "title",
                         "description": null,
@@ -5636,12 +5612,16 @@
                 "fields": null,
                 "inputFields": [
                     {
-                        "name": "id_map",
+                        "name": "id",
                         "description": null,
                         "type": {
-                            "kind": "SCALAR",
-                            "name": "String",
-                            "ofType": null
+                            "kind": "NON_NULL",
+                            "name": null,
+                            "ofType": {
+                                "kind": "SCALAR",
+                                "name": "ID",
+                                "ofType": null
+                            }
                         },
                         "defaultValue": null
                     },
@@ -5728,16 +5708,12 @@
                 "fields": null,
                 "inputFields": [
                     {
-                        "name": "id_user",
+                        "name": "id",
                         "description": null,
                         "type": {
-                            "kind": "NON_NULL",
-                            "name": null,
-                            "ofType": {
-                                "kind": "SCALAR",
-                                "name": "String",
-                                "ofType": null
-                            }
+                            "kind": "SCALAR",
+                            "name": "ID",
+                            "ofType": null
                         },
                         "defaultValue": null
                     },
@@ -5762,16 +5738,6 @@
                 "description": null,
                 "fields": null,
                 "inputFields": [
-                    {
-                        "name": "id_user",
-                        "description": null,
-                        "type": {
-                            "kind": "INPUT_OBJECT",
-                            "name": "ModelStringInput",
-                            "ofType": null
-                        },
-                        "defaultValue": null
-                    },
                     {
                         "name": "and",
                         "description": null,
@@ -5822,12 +5788,16 @@
                 "fields": null,
                 "inputFields": [
                     {
-                        "name": "id_user",
+                        "name": "id",
                         "description": null,
                         "type": {
-                            "kind": "SCALAR",
-                            "name": "String",
-                            "ofType": null
+                            "kind": "NON_NULL",
+                            "name": null,
+                            "ofType": {
+                                "kind": "SCALAR",
+                                "name": "ID",
+                                "ofType": null
+                            }
                         },
                         "defaultValue": null
                     },
@@ -5884,16 +5854,12 @@
                 "fields": null,
                 "inputFields": [
                     {
-                        "name": "id_test",
+                        "name": "id",
                         "description": null,
                         "type": {
-                            "kind": "NON_NULL",
-                            "name": null,
-                            "ofType": {
-                                "kind": "SCALAR",
-                                "name": "String",
-                                "ofType": null
-                            }
+                            "kind": "SCALAR",
+                            "name": "ID",
+                            "ofType": null
                         },
                         "defaultValue": null
                     },
@@ -5987,14 +5953,14 @@
                 "fields": null,
                 "inputFields": [
                     {
-                        "name": "id_user",
+                        "name": "id",
                         "description": null,
                         "type": {
                             "kind": "NON_NULL",
                             "name": null,
                             "ofType": {
                                 "kind": "SCALAR",
-                                "name": "String",
+                                "name": "ID",
                                 "ofType": null
                             }
                         },
@@ -6049,16 +6015,6 @@
                 "description": null,
                 "fields": null,
                 "inputFields": [
-                    {
-                        "name": "id_test",
-                        "description": null,
-                        "type": {
-                            "kind": "INPUT_OBJECT",
-                            "name": "ModelStringInput",
-                            "ofType": null
-                        },
-                        "defaultValue": null
-                    },
                     {
                         "name": "image_test",
                         "description": null,
@@ -6139,12 +6095,16 @@
                 "fields": null,
                 "inputFields": [
                     {
-                        "name": "id_test",
+                        "name": "id",
                         "description": null,
                         "type": {
-                            "kind": "SCALAR",
-                            "name": "String",
-                            "ofType": null
+                            "kind": "NON_NULL",
+                            "name": null,
+                            "ofType": {
+                                "kind": "SCALAR",
+                                "name": "ID",
+                                "ofType": null
+                            }
                         },
                         "defaultValue": null
                     },
@@ -6261,16 +6221,12 @@
                 "fields": null,
                 "inputFields": [
                     {
-                        "name": "id_questionnaire",
+                        "name": "id",
                         "description": null,
                         "type": {
-                            "kind": "NON_NULL",
-                            "name": null,
-                            "ofType": {
-                                "kind": "SCALAR",
-                                "name": "String",
-                                "ofType": null
-                            }
+                            "kind": "SCALAR",
+                            "name": "ID",
+                            "ofType": null
                         },
                         "defaultValue": null
                     },
@@ -6333,16 +6289,6 @@
                 "description": null,
                 "fields": null,
                 "inputFields": [
-                    {
-                        "name": "id_questionnaire",
-                        "description": null,
-                        "type": {
-                            "kind": "INPUT_OBJECT",
-                            "name": "ModelStringInput",
-                            "ofType": null
-                        },
-                        "defaultValue": null
-                    },
                     {
                         "name": "image_questionnaire",
                         "description": null,
@@ -6423,12 +6369,16 @@
                 "fields": null,
                 "inputFields": [
                     {
-                        "name": "id_questionnaire",
+                        "name": "id",
                         "description": null,
                         "type": {
-                            "kind": "SCALAR",
-                            "name": "String",
-                            "ofType": null
+                            "kind": "NON_NULL",
+                            "name": null,
+                            "ofType": {
+                                "kind": "SCALAR",
+                                "name": "ID",
+                                "ofType": null
+                            }
                         },
                         "defaultValue": null
                     },
@@ -6515,16 +6465,12 @@
                 "fields": null,
                 "inputFields": [
                     {
-                        "name": "id_question",
+                        "name": "id",
                         "description": null,
                         "type": {
-                            "kind": "NON_NULL",
-                            "name": null,
-                            "ofType": {
-                                "kind": "SCALAR",
-                                "name": "String",
-                                "ofType": null
-                            }
+                            "kind": "SCALAR",
+                            "name": "ID",
+                            "ofType": null
                         },
                         "defaultValue": null
                     },
@@ -6612,14 +6558,14 @@
                 "fields": null,
                 "inputFields": [
                     {
-                        "name": "id_questionnaire",
+                        "name": "id",
                         "description": null,
                         "type": {
                             "kind": "NON_NULL",
                             "name": null,
                             "ofType": {
                                 "kind": "SCALAR",
-                                "name": "String",
+                                "name": "ID",
                                 "ofType": null
                             }
                         },
@@ -6713,16 +6659,6 @@
                 "fields": null,
                 "inputFields": [
                     {
-                        "name": "id_question",
-                        "description": null,
-                        "type": {
-                            "kind": "INPUT_OBJECT",
-                            "name": "ModelStringInput",
-                            "ofType": null
-                        },
-                        "defaultValue": null
-                    },
-                    {
                         "name": "text_question",
                         "description": null,
                         "type": {
@@ -6802,12 +6738,16 @@
                 "fields": null,
                 "inputFields": [
                     {
-                        "name": "id_question",
+                        "name": "id",
                         "description": null,
                         "type": {
-                            "kind": "SCALAR",
-                            "name": "String",
-                            "ofType": null
+                            "kind": "NON_NULL",
+                            "name": null,
+                            "ofType": {
+                                "kind": "SCALAR",
+                                "name": "ID",
+                                "ofType": null
+                            }
                         },
                         "defaultValue": null
                     },
@@ -6918,16 +6858,12 @@
                 "fields": null,
                 "inputFields": [
                     {
-                        "name": "id_responses",
+                        "name": "id",
                         "description": null,
                         "type": {
-                            "kind": "NON_NULL",
-                            "name": null,
-                            "ofType": {
-                                "kind": "SCALAR",
-                                "name": "String",
-                                "ofType": null
-                            }
+                            "kind": "SCALAR",
+                            "name": "ID",
+                            "ofType": null
                         },
                         "defaultValue": null
                     },
@@ -7005,14 +6941,14 @@
                 "fields": null,
                 "inputFields": [
                     {
-                        "name": "id_question",
+                        "name": "id",
                         "description": null,
                         "type": {
                             "kind": "NON_NULL",
                             "name": null,
                             "ofType": {
                                 "kind": "SCALAR",
-                                "name": "String",
+                                "name": "ID",
                                 "ofType": null
                             }
                         },
@@ -7120,16 +7056,6 @@
                 "fields": null,
                 "inputFields": [
                     {
-                        "name": "id_responses",
-                        "description": null,
-                        "type": {
-                            "kind": "INPUT_OBJECT",
-                            "name": "ModelStringInput",
-                            "ofType": null
-                        },
-                        "defaultValue": null
-                    },
-                    {
                         "name": "response",
                         "description": null,
                         "type": {
@@ -7189,12 +7115,16 @@
                 "fields": null,
                 "inputFields": [
                     {
-                        "name": "id_responses",
+                        "name": "id",
                         "description": null,
                         "type": {
-                            "kind": "SCALAR",
-                            "name": "String",
-                            "ofType": null
+                            "kind": "NON_NULL",
+                            "name": null,
+                            "ofType": {
+                                "kind": "SCALAR",
+                                "name": "ID",
+                                "ofType": null
+                            }
                         },
                         "defaultValue": null
                     },
@@ -7336,14 +7266,14 @@
                 "fields": null,
                 "inputFields": [
                     {
-                        "name": "id_responses",
+                        "name": "id",
                         "description": null,
                         "type": {
                             "kind": "NON_NULL",
                             "name": null,
                             "ofType": {
                                 "kind": "SCALAR",
-                                "name": "String",
+                                "name": "ID",
                                 "ofType": null
                             }
                         },
@@ -7556,16 +7486,12 @@
                 "fields": null,
                 "inputFields": [
                     {
-                        "name": "id_advice",
+                        "name": "id",
                         "description": null,
                         "type": {
-                            "kind": "NON_NULL",
-                            "name": null,
-                            "ofType": {
-                                "kind": "SCALAR",
-                                "name": "String",
-                                "ofType": null
-                            }
+                            "kind": "SCALAR",
+                            "name": "ID",
+                            "ofType": null
                         },
                         "defaultValue": null
                     },
@@ -7652,16 +7578,6 @@
                 "description": null,
                 "fields": null,
                 "inputFields": [
-                    {
-                        "name": "id_advice",
-                        "description": null,
-                        "type": {
-                            "kind": "INPUT_OBJECT",
-                            "name": "ModelStringInput",
-                            "ofType": null
-                        },
-                        "defaultValue": null
-                    },
                     {
                         "name": "title",
                         "description": null,
@@ -7762,12 +7678,16 @@
                 "fields": null,
                 "inputFields": [
                     {
-                        "name": "id_advice",
+                        "name": "id",
                         "description": null,
                         "type": {
-                            "kind": "SCALAR",
-                            "name": "String",
-                            "ofType": null
+                            "kind": "NON_NULL",
+                            "name": null,
+                            "ofType": {
+                                "kind": "SCALAR",
+                                "name": "ID",
+                                "ofType": null
+                            }
                         },
                         "defaultValue": null
                     },

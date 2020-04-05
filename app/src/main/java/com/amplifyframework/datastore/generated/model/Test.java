@@ -21,14 +21,12 @@ import static com.amplifyframework.core.model.query.predicate.QueryField.field;
 @ModelConfig(pluralName = "Tests")
 public final class Test implements Model {
   public static final QueryField ID = field("id");
-  public static final QueryField ID_TEST = field("id_test");
   public static final QueryField IMAGE_TEST = field("image_test");
   public static final QueryField TEST_DESCRIPTION = field("test_description");
   public static final QueryField TEST_RESULT = field("test_result");
   public static final QueryField QUESTIONNAIRE = field("testQuestionnaireId");
   public static final QueryField USER = field("testUserId");
   private final @ModelField(targetType="ID", isRequired = true) String id;
-  private final @ModelField(targetType="String", isRequired = true) String id_test;
   private final @ModelField(targetType="AWSURL") String image_test;
   private final @ModelField(targetType="String", isRequired = true) String test_description;
   private final @ModelField(targetType="String", isRequired = true) String test_result;
@@ -36,10 +34,6 @@ public final class Test implements Model {
   private final @ModelField(targetType="User") @BelongsTo(targetName = "testUserId", type = User.class) User user;
   public String getId() {
       return id;
-  }
-  
-  public String getIdTest() {
-      return id_test;
   }
   
   public String getImageTest() {
@@ -62,9 +56,8 @@ public final class Test implements Model {
       return user;
   }
   
-  private Test(String id, String id_test, String image_test, String test_description, String test_result, Questionnaire questionnaire, User user) {
+  private Test(String id, String image_test, String test_description, String test_result, Questionnaire questionnaire, User user) {
     this.id = id;
-    this.id_test = id_test;
     this.image_test = image_test;
     this.test_description = test_description;
     this.test_result = test_result;
@@ -81,7 +74,6 @@ public final class Test implements Model {
       } else {
       Test test = (Test) obj;
       return ObjectsCompat.equals(getId(), test.getId()) &&
-              ObjectsCompat.equals(getIdTest(), test.getIdTest()) &&
               ObjectsCompat.equals(getImageTest(), test.getImageTest()) &&
               ObjectsCompat.equals(getTestDescription(), test.getTestDescription()) &&
               ObjectsCompat.equals(getTestResult(), test.getTestResult()) &&
@@ -94,7 +86,6 @@ public final class Test implements Model {
    public int hashCode() {
     return new StringBuilder()
       .append(getId())
-      .append(getIdTest())
       .append(getImageTest())
       .append(getTestDescription())
       .append(getTestResult())
@@ -104,7 +95,7 @@ public final class Test implements Model {
       .hashCode();
   }
   
-  public static IdTestStep builder() {
+  public static TestDescriptionStep builder() {
       return new Builder();
   }
   
@@ -133,25 +124,18 @@ public final class Test implements Model {
       null,
       null,
       null,
-      null,
       null
     );
   }
   
   public CopyOfBuilder copyOfBuilder() {
     return new CopyOfBuilder(id,
-      id_test,
       image_test,
       test_description,
       test_result,
       questionnaire,
       user);
   }
-  public interface IdTestStep {
-    TestDescriptionStep idTest(String idTest);
-  }
-  
-
   public interface TestDescriptionStep {
     TestResultStep testDescription(String testDescription);
   }
@@ -171,9 +155,8 @@ public final class Test implements Model {
   }
   
 
-  public static class Builder implements IdTestStep, TestDescriptionStep, TestResultStep, BuildStep {
+  public static class Builder implements TestDescriptionStep, TestResultStep, BuildStep {
     private String id;
-    private String id_test;
     private String test_description;
     private String test_result;
     private String image_test;
@@ -185,19 +168,11 @@ public final class Test implements Model {
         
         return new Test(
           id,
-          id_test,
           image_test,
           test_description,
           test_result,
           questionnaire,
           user);
-    }
-    
-    @Override
-     public TestDescriptionStep idTest(String idTest) {
-        Objects.requireNonNull(idTest);
-        this.id_test = idTest;
-        return this;
     }
     
     @Override
@@ -255,19 +230,13 @@ public final class Test implements Model {
   
 
   public final class CopyOfBuilder extends Builder {
-    private CopyOfBuilder(String id, String idTest, String imageTest, String testDescription, String testResult, Questionnaire questionnaire, User user) {
+    private CopyOfBuilder(String id, String imageTest, String testDescription, String testResult, Questionnaire questionnaire, User user) {
       super.id(id);
-      super.idTest(idTest)
-        .testDescription(testDescription)
+      super.testDescription(testDescription)
         .testResult(testResult)
         .imageTest(imageTest)
         .questionnaire(questionnaire)
         .user(user);
-    }
-    
-    @Override
-     public CopyOfBuilder idTest(String idTest) {
-      return (CopyOfBuilder) super.idTest(idTest);
     }
     
     @Override

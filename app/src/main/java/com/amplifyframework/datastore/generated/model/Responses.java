@@ -21,21 +21,15 @@ import static com.amplifyframework.core.model.query.predicate.QueryField.field;
 @ModelConfig(pluralName = "Responses")
 public final class Responses implements Model {
   public static final QueryField ID = field("id");
-  public static final QueryField ID_RESPONSES = field("id_responses");
   public static final QueryField QUESTION = field("responsesQuestionId");
   public static final QueryField RESPONSE = field("response");
   public static final QueryField GROUP = field("responsesGroupId");
   private final @ModelField(targetType="ID", isRequired = true) String id;
-  private final @ModelField(targetType="String", isRequired = true) String id_responses;
   private final @ModelField(targetType="Question", isRequired = true) @BelongsTo(targetName = "responsesQuestionId", type = Question.class) Question question;
   private final @ModelField(targetType="String", isRequired = true) String response;
   private final @ModelField(targetType="TestEntries") @BelongsTo(targetName = "responsesGroupId", type = TestEntries.class) TestEntries group;
   public String getId() {
       return id;
-  }
-  
-  public String getIdResponses() {
-      return id_responses;
   }
   
   public Question getQuestion() {
@@ -50,9 +44,8 @@ public final class Responses implements Model {
       return group;
   }
   
-  private Responses(String id, String id_responses, Question question, String response, TestEntries group) {
+  private Responses(String id, Question question, String response, TestEntries group) {
     this.id = id;
-    this.id_responses = id_responses;
     this.question = question;
     this.response = response;
     this.group = group;
@@ -67,7 +60,6 @@ public final class Responses implements Model {
       } else {
       Responses responses = (Responses) obj;
       return ObjectsCompat.equals(getId(), responses.getId()) &&
-              ObjectsCompat.equals(getIdResponses(), responses.getIdResponses()) &&
               ObjectsCompat.equals(getQuestion(), responses.getQuestion()) &&
               ObjectsCompat.equals(getResponse(), responses.getResponse()) &&
               ObjectsCompat.equals(getGroup(), responses.getGroup());
@@ -78,7 +70,6 @@ public final class Responses implements Model {
    public int hashCode() {
     return new StringBuilder()
       .append(getId())
-      .append(getIdResponses())
       .append(getQuestion())
       .append(getResponse())
       .append(getGroup())
@@ -86,7 +77,7 @@ public final class Responses implements Model {
       .hashCode();
   }
   
-  public static IdResponsesStep builder() {
+  public static QuestionStep builder() {
       return new Builder();
   }
   
@@ -113,23 +104,16 @@ public final class Responses implements Model {
       id,
       null,
       null,
-      null,
       null
     );
   }
   
   public CopyOfBuilder copyOfBuilder() {
     return new CopyOfBuilder(id,
-      id_responses,
       question,
       response,
       group);
   }
-  public interface IdResponsesStep {
-    QuestionStep idResponses(String idResponses);
-  }
-  
-
   public interface QuestionStep {
     ResponseStep question(Question question);
   }
@@ -147,9 +131,8 @@ public final class Responses implements Model {
   }
   
 
-  public static class Builder implements IdResponsesStep, QuestionStep, ResponseStep, BuildStep {
+  public static class Builder implements QuestionStep, ResponseStep, BuildStep {
     private String id;
-    private String id_responses;
     private Question question;
     private String response;
     private TestEntries group;
@@ -159,17 +142,9 @@ public final class Responses implements Model {
         
         return new Responses(
           id,
-          id_responses,
           question,
           response,
           group);
-    }
-    
-    @Override
-     public QuestionStep idResponses(String idResponses) {
-        Objects.requireNonNull(idResponses);
-        this.id_responses = idResponses;
-        return this;
     }
     
     @Override
@@ -215,17 +190,11 @@ public final class Responses implements Model {
   
 
   public final class CopyOfBuilder extends Builder {
-    private CopyOfBuilder(String id, String idResponses, Question question, String response, TestEntries group) {
+    private CopyOfBuilder(String id, Question question, String response, TestEntries group) {
       super.id(id);
-      super.idResponses(idResponses)
-        .question(question)
+      super.question(question)
         .response(response)
         .group(group);
-    }
-    
-    @Override
-     public CopyOfBuilder idResponses(String idResponses) {
-      return (CopyOfBuilder) super.idResponses(idResponses);
     }
     
     @Override

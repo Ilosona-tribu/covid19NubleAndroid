@@ -1,7 +1,7 @@
 # this is an auto generated file. This will be overwritten
 subscription OnCreateNews {
   onCreateNews {
-    id_news
+    id
     title
     description
     detail
@@ -14,7 +14,7 @@ subscription OnCreateNews {
 }
 subscription OnUpdateNews {
   onUpdateNews {
-    id_news
+    id
     title
     description
     detail
@@ -27,7 +27,7 @@ subscription OnUpdateNews {
 }
 subscription OnDeleteNews {
   onDeleteNews {
-    id_news
+    id
     title
     description
     detail
@@ -40,7 +40,7 @@ subscription OnDeleteNews {
 }
 subscription OnCreateMap {
   onCreateMap {
-    id_map
+    id
     title
     description
     url_map
@@ -51,7 +51,7 @@ subscription OnCreateMap {
 }
 subscription OnUpdateMap {
   onUpdateMap {
-    id_map
+    id
     title
     description
     url_map
@@ -62,7 +62,7 @@ subscription OnUpdateMap {
 }
 subscription OnDeleteMap {
   onDeleteMap {
-    id_map
+    id
     title
     description
     url_map
@@ -73,10 +73,10 @@ subscription OnDeleteMap {
 }
 subscription OnCreateUser {
   onCreateUser {
-    id_user
+    id
     tests {
       items {
-        id_test
+        id
         image_test
         test_description
         test_result
@@ -94,10 +94,10 @@ subscription OnCreateUser {
 }
 subscription OnUpdateUser {
   onUpdateUser {
-    id_user
+    id
     tests {
       items {
-        id_test
+        id
         image_test
         test_description
         test_result
@@ -115,10 +115,10 @@ subscription OnUpdateUser {
 }
 subscription OnDeleteUser {
   onDeleteUser {
-    id_user
+    id
     tests {
       items {
-        id_test
+        id
         image_test
         test_description
         test_result
@@ -136,12 +136,12 @@ subscription OnDeleteUser {
 }
 subscription OnCreateTest {
   onCreateTest {
-    id_test
+    id
     image_test
     test_description
     test_result
     questionnaire {
-      id_questionnaire
+      id
       image_questionnaire
       title_questionnaire
       description_questionnaire
@@ -154,7 +154,7 @@ subscription OnCreateTest {
       _lastChangedAt
     }
     user {
-      id_user
+      id
       tests {
         nextToken
         startedAt
@@ -170,12 +170,12 @@ subscription OnCreateTest {
 }
 subscription OnUpdateTest {
   onUpdateTest {
-    id_test
+    id
     image_test
     test_description
     test_result
     questionnaire {
-      id_questionnaire
+      id
       image_questionnaire
       title_questionnaire
       description_questionnaire
@@ -188,7 +188,7 @@ subscription OnUpdateTest {
       _lastChangedAt
     }
     user {
-      id_user
+      id
       tests {
         nextToken
         startedAt
@@ -204,12 +204,12 @@ subscription OnUpdateTest {
 }
 subscription OnDeleteTest {
   onDeleteTest {
-    id_test
+    id
     image_test
     test_description
     test_result
     questionnaire {
-      id_questionnaire
+      id
       image_questionnaire
       title_questionnaire
       description_questionnaire
@@ -222,7 +222,7 @@ subscription OnDeleteTest {
       _lastChangedAt
     }
     user {
-      id_user
+      id
       tests {
         nextToken
         startedAt
@@ -238,13 +238,13 @@ subscription OnDeleteTest {
 }
 subscription OnCreateQuestionnaire {
   onCreateQuestionnaire {
-    id_questionnaire
+    id
     image_questionnaire
     title_questionnaire
     description_questionnaire
     question {
       items {
-        id_question
+        id
         text_question
         question_type
         list_options
@@ -262,13 +262,13 @@ subscription OnCreateQuestionnaire {
 }
 subscription OnUpdateQuestionnaire {
   onUpdateQuestionnaire {
-    id_questionnaire
+    id
     image_questionnaire
     title_questionnaire
     description_questionnaire
     question {
       items {
-        id_question
+        id
         text_question
         question_type
         list_options
@@ -286,13 +286,13 @@ subscription OnUpdateQuestionnaire {
 }
 subscription OnDeleteQuestionnaire {
   onDeleteQuestionnaire {
-    id_questionnaire
+    id
     image_questionnaire
     title_questionnaire
     description_questionnaire
     question {
       items {
-        id_question
+        id
         text_question
         question_type
         list_options
@@ -310,12 +310,12 @@ subscription OnDeleteQuestionnaire {
 }
 subscription OnCreateQuestion {
   onCreateQuestion {
-    id_question
+    id
     text_question
     question_type
     list_options
     questionnaire {
-      id_questionnaire
+      id
       image_questionnaire
       title_questionnaire
       description_questionnaire
@@ -334,12 +334,12 @@ subscription OnCreateQuestion {
 }
 subscription OnUpdateQuestion {
   onUpdateQuestion {
-    id_question
+    id
     text_question
     question_type
     list_options
     questionnaire {
-      id_questionnaire
+      id
       image_questionnaire
       title_questionnaire
       description_questionnaire
@@ -358,12 +358,12 @@ subscription OnUpdateQuestion {
 }
 subscription OnDeleteQuestion {
   onDeleteQuestion {
-    id_question
+    id
     text_question
     question_type
     list_options
     questionnaire {
-      id_questionnaire
+      id
       image_questionnaire
       title_questionnaire
       description_questionnaire
@@ -382,14 +382,14 @@ subscription OnDeleteQuestion {
 }
 subscription OnCreateResponses {
   onCreateResponses {
-    id_responses
+    id
     question {
-      id_question
+      id
       text_question
       question_type
       list_options
       questionnaire {
-        id_questionnaire
+        id
         image_questionnaire
         title_questionnaire
         description_questionnaire
@@ -419,14 +419,14 @@ subscription OnCreateResponses {
 }
 subscription OnUpdateResponses {
   onUpdateResponses {
-    id_responses
+    id
     question {
-      id_question
+      id
       text_question
       question_type
       list_options
       questionnaire {
-        id_questionnaire
+        id
         image_questionnaire
         title_questionnaire
         description_questionnaire
@@ -456,14 +456,14 @@ subscription OnUpdateResponses {
 }
 subscription OnDeleteResponses {
   onDeleteResponses {
-    id_responses
+    id
     question {
-      id_question
+      id
       text_question
       question_type
       list_options
       questionnaire {
-        id_questionnaire
+        id
         image_questionnaire
         title_questionnaire
         description_questionnaire
@@ -496,7 +496,7 @@ subscription OnCreateTestEntries {
     id
     responses {
       items {
-        id_responses
+        id
         response
         _version
         _deleted
@@ -515,7 +515,7 @@ subscription OnUpdateTestEntries {
     id
     responses {
       items {
-        id_responses
+        id
         response
         _version
         _deleted
@@ -534,7 +534,7 @@ subscription OnDeleteTestEntries {
     id
     responses {
       items {
-        id_responses
+        id
         response
         _version
         _deleted
@@ -550,7 +550,7 @@ subscription OnDeleteTestEntries {
 }
 subscription OnCreateAdvice {
   onCreateAdvice {
-    id_advice
+    id
     title
     description
     detail
@@ -563,7 +563,7 @@ subscription OnCreateAdvice {
 }
 subscription OnUpdateAdvice {
   onUpdateAdvice {
-    id_advice
+    id
     title
     description
     detail
@@ -576,7 +576,7 @@ subscription OnUpdateAdvice {
 }
 subscription OnDeleteAdvice {
   onDeleteAdvice {
-    id_advice
+    id
     title
     description
     detail

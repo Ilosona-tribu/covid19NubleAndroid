@@ -21,25 +21,18 @@ import static com.amplifyframework.core.model.query.predicate.QueryField.field;
 @ModelConfig(pluralName = "Users")
 public final class User implements Model {
   public static final QueryField ID = field("id");
-  public static final QueryField ID_USER = field("id_user");
   private final @ModelField(targetType="ID", isRequired = true) String id;
-  private final @ModelField(targetType="String", isRequired = true) String id_user;
   private final @ModelField(targetType="Test") @HasMany(associatedWith = "user", type = Test.class) List<Test> tests = null;
   public String getId() {
       return id;
-  }
-  
-  public String getIdUser() {
-      return id_user;
   }
   
   public List<Test> getTests() {
       return tests;
   }
   
-  private User(String id, String id_user) {
+  private User(String id) {
     this.id = id;
-    this.id_user = id_user;
   }
   
   @Override
@@ -50,8 +43,7 @@ public final class User implements Model {
         return false;
       } else {
       User user = (User) obj;
-      return ObjectsCompat.equals(getId(), user.getId()) &&
-              ObjectsCompat.equals(getIdUser(), user.getIdUser());
+      return ObjectsCompat.equals(getId(), user.getId());
       }
   }
   
@@ -59,12 +51,11 @@ public final class User implements Model {
    public int hashCode() {
     return new StringBuilder()
       .append(getId())
-      .append(getIdUser())
       .toString()
       .hashCode();
   }
   
-  public static IdUserStep builder() {
+  public static BuildStep builder() {
       return new Builder();
   }
   
@@ -88,43 +79,27 @@ public final class User implements Model {
       );
     }
     return new User(
-      id,
-      null
+      id
     );
   }
   
   public CopyOfBuilder copyOfBuilder() {
-    return new CopyOfBuilder(id,
-      id_user);
+    return new CopyOfBuilder(id);
   }
-  public interface IdUserStep {
-    BuildStep idUser(String idUser);
-  }
-  
-
   public interface BuildStep {
     User build();
     BuildStep id(String id) throws IllegalArgumentException;
   }
   
 
-  public static class Builder implements IdUserStep, BuildStep {
+  public static class Builder implements BuildStep {
     private String id;
-    private String id_user;
     @Override
      public User build() {
         String id = this.id != null ? this.id : UUID.randomUUID().toString();
         
         return new User(
-          id,
-          id_user);
-    }
-    
-    @Override
-     public BuildStep idUser(String idUser) {
-        Objects.requireNonNull(idUser);
-        this.id_user = idUser;
-        return this;
+          id);
     }
     
     /** 
@@ -150,14 +125,9 @@ public final class User implements Model {
   
 
   public final class CopyOfBuilder extends Builder {
-    private CopyOfBuilder(String id, String idUser) {
+    private CopyOfBuilder(String id) {
       super.id(id);
-      super.idUser(idUser);
-    }
-    
-    @Override
-     public CopyOfBuilder idUser(String idUser) {
-      return (CopyOfBuilder) super.idUser(idUser);
+      super;
     }
   }
   

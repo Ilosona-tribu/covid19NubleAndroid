@@ -20,14 +20,12 @@ import static com.amplifyframework.core.model.query.predicate.QueryField.field;
 @ModelConfig(pluralName = "News")
 public final class News implements Model {
   public static final QueryField ID = field("id");
-  public static final QueryField ID_NEWS = field("id_news");
   public static final QueryField TITLE = field("title");
   public static final QueryField DESCRIPTION = field("description");
   public static final QueryField DETAIL = field("detail");
   public static final QueryField URL_BACKGROUND_IMAGE = field("url_background_image");
   public static final QueryField URL_THUMBNAIL_IMAGE = field("url_thumbnail_image");
   private final @ModelField(targetType="ID", isRequired = true) String id;
-  private final @ModelField(targetType="String", isRequired = true) String id_news;
   private final @ModelField(targetType="String", isRequired = true) String title;
   private final @ModelField(targetType="String", isRequired = true) String description;
   private final @ModelField(targetType="String", isRequired = true) String detail;
@@ -35,10 +33,6 @@ public final class News implements Model {
   private final @ModelField(targetType="AWSURL") String url_thumbnail_image;
   public String getId() {
       return id;
-  }
-  
-  public String getIdNews() {
-      return id_news;
   }
   
   public String getTitle() {
@@ -61,9 +55,8 @@ public final class News implements Model {
       return url_thumbnail_image;
   }
   
-  private News(String id, String id_news, String title, String description, String detail, String url_background_image, String url_thumbnail_image) {
+  private News(String id, String title, String description, String detail, String url_background_image, String url_thumbnail_image) {
     this.id = id;
-    this.id_news = id_news;
     this.title = title;
     this.description = description;
     this.detail = detail;
@@ -80,7 +73,6 @@ public final class News implements Model {
       } else {
       News news = (News) obj;
       return ObjectsCompat.equals(getId(), news.getId()) &&
-              ObjectsCompat.equals(getIdNews(), news.getIdNews()) &&
               ObjectsCompat.equals(getTitle(), news.getTitle()) &&
               ObjectsCompat.equals(getDescription(), news.getDescription()) &&
               ObjectsCompat.equals(getDetail(), news.getDetail()) &&
@@ -93,7 +85,6 @@ public final class News implements Model {
    public int hashCode() {
     return new StringBuilder()
       .append(getId())
-      .append(getIdNews())
       .append(getTitle())
       .append(getDescription())
       .append(getDetail())
@@ -103,7 +94,7 @@ public final class News implements Model {
       .hashCode();
   }
   
-  public static IdNewsStep builder() {
+  public static TitleStep builder() {
       return new Builder();
   }
   
@@ -132,25 +123,18 @@ public final class News implements Model {
       null,
       null,
       null,
-      null,
       null
     );
   }
   
   public CopyOfBuilder copyOfBuilder() {
     return new CopyOfBuilder(id,
-      id_news,
       title,
       description,
       detail,
       url_background_image,
       url_thumbnail_image);
   }
-  public interface IdNewsStep {
-    TitleStep idNews(String idNews);
-  }
-  
-
   public interface TitleStep {
     DescriptionStep title(String title);
   }
@@ -174,9 +158,8 @@ public final class News implements Model {
   }
   
 
-  public static class Builder implements IdNewsStep, TitleStep, DescriptionStep, DetailStep, BuildStep {
+  public static class Builder implements TitleStep, DescriptionStep, DetailStep, BuildStep {
     private String id;
-    private String id_news;
     private String title;
     private String description;
     private String detail;
@@ -188,19 +171,11 @@ public final class News implements Model {
         
         return new News(
           id,
-          id_news,
           title,
           description,
           detail,
           url_background_image,
           url_thumbnail_image);
-    }
-    
-    @Override
-     public TitleStep idNews(String idNews) {
-        Objects.requireNonNull(idNews);
-        this.id_news = idNews;
-        return this;
     }
     
     @Override
@@ -259,19 +234,13 @@ public final class News implements Model {
   
 
   public final class CopyOfBuilder extends Builder {
-    private CopyOfBuilder(String id, String idNews, String title, String description, String detail, String urlBackgroundImage, String urlThumbnailImage) {
+    private CopyOfBuilder(String id, String title, String description, String detail, String urlBackgroundImage, String urlThumbnailImage) {
       super.id(id);
-      super.idNews(idNews)
-        .title(title)
+      super.title(title)
         .description(description)
         .detail(detail)
         .urlBackgroundImage(urlBackgroundImage)
         .urlThumbnailImage(urlThumbnailImage);
-    }
-    
-    @Override
-     public CopyOfBuilder idNews(String idNews) {
-      return (CopyOfBuilder) super.idNews(idNews);
     }
     
     @Override
