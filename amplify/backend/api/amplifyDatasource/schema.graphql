@@ -1,49 +1,71 @@
 type News @model {
-  id:ID!
+  id_news: ID!
   title: String!
   description: String!
   detail: String!
   url_background_image: AWSURL
+  url_detail_image:AWSURL
+  url_background_image_2:AWSURL
   url_thumbnail_image:AWSURL
+  url_video:AWSURL
+
 }
 
 type Map @model {
-    id:ID!
+    id_map:  ID!
     title: String!
     description: String!
     url_map: AWSURL
+    region: Region @connection
+
+}
+
+type Region @model{
+    id_region: ID!
+    region_name:String!
+    region_infections:String!
+    region_recoveries:String!
+    region_deaths:String
 }
 
 type User @model {
-    id:ID!
-    tests : [Test] @connection(name: "UserTests")
+  id_user : ID!
+  tests : [Test] @connection(name: "UserTests")
 }
 
 type Test @model {
-    id:ID!
-    image_test: AWSURL
-    test_description:String!
-    test_result : String!
-    questionnaire : Questionnaire @connection
-    user: User @connection(name: "UserTests")
+  id_test : ID!
+  image_test: AWSURL
+  test_description:String!
+  result: Result @connection
+  questionnaire : Questionnaire @connection
+  user: User @connection(name: "UserTests")
+}
+
+type Result @model {
+   id_result : ID!
+   text_result : String!
+   header_result : String!
+   detail_result: String!
+   action_result: String!
 }
 
 
 type Questionnaire @model {
-    id:ID!
-    image_questionnaire:AWSURL
-    title_questionnaire: String!
-    description_questionnaire: String!
-    question: [Question] @connection(name: "QuestionnaireQuestions")
+  id_questionnaire : ID!
+  image_questionnaire:AWSURL
+  title_questionnaire: String!
+  description_questionnaire: String!
+  question: [Question] @connection(name: "QuestionnaireQuestions")
 }
 
 
 type Question @model {
-    id:ID!
-    text_question: String!
-    question_type:QuestionType!
-    list_options : [String]
-    questionnaire: Questionnaire @connection(name: "QuestionnaireQuestions")
+  id_question : ID!
+  text_question: String!
+  question_type:QuestionType!
+  list_options : [String]
+  questionnaire: Questionnaire @connection(name: "QuestionnaireQuestions")
 }
 
 enum QuestionType {
@@ -53,7 +75,7 @@ enum QuestionType {
 }
 
 type Responses @model {
-    id:ID!
+    id_responses: ID!
     question: Question! @connection
     response: String!
     group: TestEntries @connection(name: "TestEntryResponses")
@@ -65,10 +87,13 @@ type TestEntries @model {
 }
 
 type Advice @model {
-    id:ID!
-    title: String!
-    description: String!
-    detail: String!
-    url_background_image: AWSURL
-    url_thumbnail_image:AWSURL
+  id_advice: ID!
+  title: String!
+  description: String!
+  detail: String!
+  url_background_image: AWSURL
+  url_thumbnail_image:AWSURL
+  url_video:AWSURL
+  url_detail_image:AWSURL
+  url_background_image_2:AWSURL
 }
